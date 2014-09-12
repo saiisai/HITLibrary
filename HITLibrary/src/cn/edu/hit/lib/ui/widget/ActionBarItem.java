@@ -57,13 +57,7 @@ public class ActionBarItem extends LinearLayout{
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		if(!isCurrent){
-			if(event.getAction() == MotionEvent.ACTION_DOWN){
-				setBackgroundResource(R.color.bg_actionbar_hover);
-			}else{
-				setBackgroundResource(R.drawable.actionbar_item);
-				title.setTextColor(getResources().getColor(R.color.text_actionbar));
-				setTint(ic, getResources().getColor(R.color.text_actionbar));
-			}
+			setBackgroundResource(R.color.bg_actionbar_hover);
 		}
 		if(event.getAction() == MotionEvent.ACTION_UP){
 			performClick();
