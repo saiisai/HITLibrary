@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 public class QueryURLFormatter {
-	public final static String BASEURL = "http://202.118.250.131/lib/dwr/call/plaincall/OpacDelegate.aaet.dwr";
+	public static String SCRIPT_SESSIONID;
 	public QueryType queryType;
 	public int limit = 10;
 	public int page = 1;
@@ -98,8 +98,10 @@ public class QueryURLFormatter {
 		body = new StringBuilder()
 		.append("callCount=1\n")
 		.append("page=/lib/opacAction.do\n")
-		.append("httpSessionId=B6742BFEAB4E2F03BA12D9331BE9D055\n")
-		.append("scriptSessionId=FE2A70CE1ABD5ADC1FE2824C994A943A99\n")
+//		.append("httpSessionId=B6742BFEAB4E2F03BA12D9331BE9D055\n")
+		.append("scriptSessionId=" + String.valueOf(SCRIPT_SESSIONID) + "\n")
+//		.append("httpSessionId=B6742BFEAB4E2F03BA12D9331BE9D055\n")
+//		.append("scriptSessionId=FE2A70CE1ABD5ADC1FE2824C994A943A99\n")
 		.append("c0-scriptName=OpacDelegate\n")
 		.append("c0-methodName=aaet\n")
 		.append("c0-id=0\n")

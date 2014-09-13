@@ -4,6 +4,6 @@
     <string name="app_name">HITLibrary</string>
     <string name="homepage">首页</string>
     <string name="recommend">推荐</string>
-    <string name="user_center">我的图书</string>
+    <string name="user_center">我的</string>
 
 </resources>

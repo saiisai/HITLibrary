@@ -25,10 +25,12 @@ public class MainActivity extends FragmentActivity {
 		actionbar = (ActionBar)findViewById(R.id.actionbar);
 		viewPager = (ViewPager)findViewById(R.id.viewPager);
 		
+		//new SessionIDGetter().execute();
+		
 		ArrayList<Fragment> fragments = new ArrayList<Fragment>();
 		fragments.add((Fragment)(new HomeFragment()));
-		fragments.add((Fragment)(new HomeFragment()));
-		fragments.add((Fragment)(new HomeFragment()));
+		fragments.add((Fragment)(new RecommendFragment()));
+		fragments.add((Fragment)(new UserCenterFragment()));
 		viewPager.setAdapter(new MainFragmentPagerAdapter(getSupportFragmentManager(), fragments));
 		viewPager.setOnPageChangeListener(new MainFragmentPagerChangeListener());
 

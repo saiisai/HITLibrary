@@ -22,7 +22,7 @@ public class ActionBarItem extends LinearLayout{
 	public ActionBarItem(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		
-		int padding = getResources().getDimensionPixelSize(R.dimen.tab_padding);
+		int padding = getResources().getDimensionPixelSize(R.dimen.common_padding);
 		int icScale = getResources().getDimensionPixelSize(R.dimen.ic_tab);
 		int icMargin = getResources().getDimensionPixelSize(R.dimen.ic_tab_margin);
 		height = getResources().getDimensionPixelSize(R.dimen.actionbar_height);

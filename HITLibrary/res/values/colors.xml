@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="transparent">#00000000</color>
+    
     <color name="bg_default">#ffffff</color>
     <color name="bg_actionbar">#f2f2f2</color>
     <color name="bg_actionbar_hover">#e2e2e2</color>
     <color name="bg_actionbar_pressed">#0e67d3</color>
+    <color name="bg_listitem_pressed">#f7f7f7</color>
+    
+    <color name="border_list_divider">#cccccc</color>
     
     <color name="text_actionbar">#333333</color>
     <color name="text_actionbar_pressed">#ffffff</color>
+    <color name="text_list_title">#222222</color>
+    <color name="text_list_description">#777777</color>
 </resources>
