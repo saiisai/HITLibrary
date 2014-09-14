@@ -5,4 +5,11 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="verticalScrollBar">
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:scrollbarThumbVertical">@drawable/bg_scroller</item>
+        <item name="android:scrollbarSize">2dip</item>
+        <item name="android:fadingEdge">none</item>
+    </style>
+    
 </resources>

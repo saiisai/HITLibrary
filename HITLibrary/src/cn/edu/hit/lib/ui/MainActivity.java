@@ -29,13 +29,14 @@ public class MainActivity extends FragmentActivity {
 		
 		ArrayList<Fragment> fragments = new ArrayList<Fragment>();
 		fragments.add((Fragment)(new HomeFragment()));
-		fragments.add((Fragment)(new RecommendFragment()));
+		fragments.add((Fragment)(new SearchFragment()));
 		fragments.add((Fragment)(new UserCenterFragment()));
 		viewPager.setAdapter(new MainFragmentPagerAdapter(getSupportFragmentManager(), fragments));
 		viewPager.setOnPageChangeListener(new MainFragmentPagerChangeListener());
+		viewPager.setOffscreenPageLimit(fragments.size());
 
 		ActionBarItem homePage = new ActionBarItem(this, null).init(R.string.homepage, R.drawable.ic_home);
-		ActionBarItem recommend = new ActionBarItem(this, null).init(R.string.recommend, R.drawable.ic_star);
+		ActionBarItem recommend = new ActionBarItem(this, null).init(R.string.search, R.drawable.ic_search);
 		ActionBarItem userCenter = new ActionBarItem(this, null).init(R.string.user_center, R.drawable.ic_user);
 		actionbar.addItem(homePage);
 		actionbar.addItem(recommend);

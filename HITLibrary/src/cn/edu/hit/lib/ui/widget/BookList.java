@@ -13,7 +13,7 @@ public class BookList extends ListView{
 
 	public BookList(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		setSelector(R.drawable.listview_item);
+		setSelector(R.drawable.listview_item);		
 	}
 	
 	public BookList setOnScrollToEndListener(OnScrollToEndListener listener){

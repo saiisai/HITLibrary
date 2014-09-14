@@ -8,6 +8,7 @@
         android:id="@+id/mainList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/verticalScrollBar"
         android:divider="@color/border_list_divider"
         android:dividerHeight="0.1dp" />
 
