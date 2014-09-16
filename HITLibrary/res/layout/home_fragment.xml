@@ -4,6 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <cn.edu.hit.lib.ui.widget.SearchEditText
+        android:id="@+id/searchBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <cn.edu.hit.lib.ui.widget.BookList
         android:id="@+id/mainList"
         android:layout_width="match_parent"

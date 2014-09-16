@@ -32,7 +32,7 @@ public class BookList extends ListView{
 			this.scrollPostExecuteFinished = false;
 			listener.onPostExecute();
 		}
-		if(getAdapter().getCount() > 0 && getLastVisiblePosition() > lastBottomItemIndex){
+		if(getAdapter() != null && getAdapter().getCount() > 0 && getLastVisiblePosition() > lastBottomItemIndex){
 			((BookListItem)getAdapter().getItem(getLastVisiblePosition())).startAnimation(
 					AnimationUtils.loadAnimation(getContext(), R.anim.slide_left_animation)
 				);

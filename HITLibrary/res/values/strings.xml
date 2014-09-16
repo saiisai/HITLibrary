@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hello_world">欢迎使用HITLibrary！</string>
 
     <string name="app_name">HITLibrary</string>
     <string name="homepage">首页</string>
     <string name="search">搜索</string>
     <string name="user_center">我的</string>
+    
+    <string name="search_hint">想要找什么书？</string>
 
 </resources>

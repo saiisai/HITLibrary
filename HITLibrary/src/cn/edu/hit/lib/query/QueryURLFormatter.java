@@ -33,10 +33,6 @@ public class QueryURLFormatter {
 		this.limit = limit;
 	}
 	
-	public void setPage(int page){
-		this.page = page;
-	}
-	
 	public String format(){
 		String params = "";
 		switch (queryType) {

@@ -1,6 +1,7 @@
 package cn.edu.hit.lib.ui;
 
 import java.util.ArrayList;
+
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,19 +14,21 @@ import android.widget.BaseAdapter;
 import cn.edu.hit.lib.R;
 import cn.edu.hit.lib.model.Book;
 import cn.edu.hit.lib.query.Querier;
-import cn.edu.hit.lib.query.Querier.onQueryFinishedListener;
+import cn.edu.hit.lib.query.Querier.OnQueryFinishedListener;
 import cn.edu.hit.lib.query.QueryResultFormatter;
 import cn.edu.hit.lib.query.QueryType;
 import cn.edu.hit.lib.query.QueryURLFormatter;
 import cn.edu.hit.lib.ui.widget.BookList;
 import cn.edu.hit.lib.ui.widget.BookList.OnScrollToEndListener;
 import cn.edu.hit.lib.ui.widget.BookListItem;
+import cn.edu.hit.lib.ui.widget.SearchEditText;
+import cn.edu.hit.lib.ui.widget.SearchEditText.OnSendListener;
 
 @SuppressLint("InflateParams")
 public class SearchFragment extends Fragment{
-	public int page;
 	public BookList mainList;
 	public Querier queryBooks;
+	public SearchEditText searchBox;
 	public QueryURLFormatter queryParams;
 	public ArrayList<BookListItem> booklist;
 	public LayoutAnimationController animationController;
@@ -34,17 +37,26 @@ public class SearchFragment extends Fragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View mView = (View)inflater.inflate(R.layout.home_fragment, null);
 		mainList = (BookList)mView.findViewById(R.id.mainList);
+		searchBox = (SearchEditText)mView.findViewById(R.id.searchBox);
 		return mView;
 	}
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+		
+		searchBox.setOnSendListener(new OnSendListener() {
+			
+			@Override
+			public void onSend() {
+				queryParams.page = 1;
+				queryParams.title = searchBox.getText().toString();
+				loadBookList();
+			}
+		});
 
 		queryParams = new QueryURLFormatter(QueryType.BOOKLIST);
 		queryParams.setLimit(30);
-		queryParams.title = "Java";
-		loadBookList();
 
 		animationController = new LayoutAnimationController(AnimationUtils.loadAnimation(getActivity(), R.anim.slide_left_animation));  
 		animationController.setOrder(LayoutAnimationController.ORDER_NORMAL);
@@ -55,16 +67,19 @@ public class SearchFragment extends Fragment{
 			
 			@Override
 			public void onPostExecute() {
-				loadBookList();
-				
+				loadBookList();				
 			}
 		});
 	}
 	
 	public void loadBookList() {
-		queryParams.setPage(page);
+		if(queryParams == null || queryParams.title.equals(""))
+			return;
+		if(queryParams.page == 1)
+			booklist.clear();
+		
 		queryBooks = new Querier(queryParams.format());
-		queryBooks.setOnQueryFinishedListener(new onQueryFinishedListener() {
+		queryBooks.setOnQueryFinishedListener(new OnQueryFinishedListener() {
 			
 			@Override
 			public void onFinished(String result) {
@@ -74,7 +89,7 @@ public class SearchFragment extends Fragment{
 					booklist.add(new BookListItem(getActivity()).setTitle(book.title).setDescription(book.publish));
 				}
 				((MainListViewAdapter)mainList.getAdapter()).notifyDataSetChanged();
-				page++;
+				queryParams.page++;
 				mainList.setPostExecuteFinished();
 			}
 		});

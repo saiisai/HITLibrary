@@ -13,13 +13,13 @@ import android.util.Log;
 
 public class Querier extends AsyncTask<Void, Long, String>{
 	public String params;
-	public onQueryFinishedListener listener;
+	public OnQueryFinishedListener listener;
 	
 	public Querier(String params){
 		this.params = params;
 	}
 	
-	public void setOnQueryFinishedListener(onQueryFinishedListener listener) {
+	public void setOnQueryFinishedListener(OnQueryFinishedListener listener) {
 		this.listener = listener;
 	}
 
@@ -59,7 +59,7 @@ public class Querier extends AsyncTask<Void, Long, String>{
 		super.onPostExecute(result);
 	}
 	
-	public interface onQueryFinishedListener{
+	public interface OnQueryFinishedListener{
 		public void onFinished(String result);
 	}
 }

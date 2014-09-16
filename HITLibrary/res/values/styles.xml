@@ -11,5 +11,9 @@
         <item name="android:scrollbarSize">2dip</item>
         <item name="android:fadingEdge">none</item>
     </style>
+	<style name="FadeTransAnimation" parent="android:Animation" mce_bogus="1">          
+		<item name="android:windowEnterAnimation">@anim/fade_trans_enter</item>     
+		<item name="android:windowExitAnimation">@anim/fade_trans_exit</item>     
+	</style>
     
 </resources>

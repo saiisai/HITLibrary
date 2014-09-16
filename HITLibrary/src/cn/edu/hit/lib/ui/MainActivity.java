@@ -3,6 +3,7 @@ package cn.edu.hit.lib.ui;
 import java.util.ArrayList;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -10,9 +11,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import cn.edu.hit.lib.R;
+import cn.edu.hit.lib.model.ColorSet.ColorType;
 import cn.edu.hit.lib.ui.widget.ActionBar;
-import cn.edu.hit.lib.ui.widget.ActionBar.onItemClickListener;
+import cn.edu.hit.lib.ui.widget.ActionBar.OnItemClickListener;
 import cn.edu.hit.lib.ui.widget.ActionBarItem;
+import cn.edu.hit.lib.ui.widget.PopupTipWindow;
 
 public class MainActivity extends FragmentActivity {
 	private ActionBar actionbar;
@@ -41,7 +44,7 @@ public class MainActivity extends FragmentActivity {
 		actionbar.addItem(homePage);
 		actionbar.addItem(recommend);
 		actionbar.addItem(userCenter);
-		actionbar.setOnItemClickListener(new onItemClickListener() {
+		actionbar.setOnItemClickListener(new OnItemClickListener() {
 			
 			@Override
 			public void onItemClick(ActionBarItem view, int position) {
@@ -49,6 +52,13 @@ public class MainActivity extends FragmentActivity {
 			}
 		});
 		
+		new Handler().postDelayed(new Runnable() {
+			
+			@Override
+			public void run() {
+				new PopupTipWindow(MainActivity.this, ColorType.SUCCESS, getString(R.string.hello_world)).show(viewPager);
+			}
+		}, 1000);
 	}
 	
 	private class MainFragmentPagerAdapter extends FragmentPagerAdapter{

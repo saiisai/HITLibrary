@@ -57,7 +57,7 @@ public class ActionBar extends LinearLayout{
 		}
 	}
 	
-	public void setOnItemClickListener(final onItemClickListener listener){
+	public void setOnItemClickListener(final OnItemClickListener listener){
 		for (int i = 0; i < items.size(); i++) {
 			final ActionBarItem item = items.get(i);
 			if(item != null){
@@ -80,7 +80,7 @@ public class ActionBar extends LinearLayout{
 		items.remove(index);
 	}
 	
-	public interface onItemClickListener{
+	public interface OnItemClickListener{
 		public void onItemClick(ActionBarItem view, int position);
 	}
 

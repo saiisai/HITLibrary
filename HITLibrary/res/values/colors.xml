@@ -11,9 +11,18 @@
     <color name="fg_actionbar">#333333</color>
     <color name="fg_actionbar_pressed">#ffffff</color>
     
+    <color name="border_default">#cccccc</color>    
     <color name="border_list_divider">#cccccc</color>
     
     <color name="text_actionbar">#ffffff</color>
     <color name="text_list_title">#222222</color>
     <color name="text_list_description">#777777</color>
+    <color name="text_light">#ffffff</color>
+    
+    <color name="colorset_default">#cccccc</color>
+    <color name="colorset_primary">#428bca</color>
+    <color name="colorset_success">#5cb85c</color>
+    <color name="colorset_info">#31b0d5</color>
+    <color name="colorset_warning">#f0ad4e</color>
+    <color name="colorset_danger">#c9302c</color>
 </resources>
